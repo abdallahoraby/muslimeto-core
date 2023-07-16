@@ -2837,11 +2837,11 @@ function upload_zoom_rec_to_aws($rec_id){
     require WP_CONTENT_DIR. '/aws/vendor/autoload.php' ;
 
     if($_SERVER['SERVER_NAME'] == 'portal.muslimeto.com') {
-        $credentials = new Aws\Credentials\Credentials('AKIA4DQNIFQUJOAIYZVA', 'g3dVj+ro1yb3aFL1MNkhH4JHv4k+4E3IT0RN52X3');
+        //$credentials = new Aws\Credentials\Credentials('asdasdasdasda', 'asjdnkjansdkjnasjkdnkjsandjknasd');
         $Bucket = 'lmspractice' ;
         $body = 'classes/' ;
     }else{
-        $credentials = new Aws\Credentials\Credentials('AKIA4DQNIFQUMJO6SY6C', 'PQoVSMckfGCD3zHBdOTZrDGjT+4zIwTJPZOZ9rqX');
+        $credentials = new Aws\Credentials\Credentials('asdasdasdasda', 'asjdnkjansdkjnasjkdnkjsandjknasd');
         $Bucket = 'lsm-portal-dev' ;
         $body = '' ;
     }
