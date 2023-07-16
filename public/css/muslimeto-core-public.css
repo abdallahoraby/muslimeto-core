@@ -1,0 +1,2704 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.hidden{
+    display: none !important;
+}
+
+.hide_event{
+    display: none !important;
+}
+
+.learners-div .col-md-10 {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.new_bookly_form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sub-group-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.link-group-options {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.link_to_existing-section {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-group-options label{
+    cursor: pointer;
+}
+
+select#bb_group_id {
+    min-width: 10rem;
+}
+
+.learners-div {
+    align-items: flex-start;
+}
+
+.learners-div {
+    align-items: flex-start !important;
+}
+
+form .col-md-6 {
+    width: 50%;
+    max-width: 50%;
+    padding: 0.5rem;
+}
+add-to-learners
+h3.add-new-title {
+    text-align: center;
+    color: var(--main_color);
+}
+
+h3.add-new-title {
+    margin: 1rem 0 2rem 0;
+    text-align: initial !important;
+    margin-top: 1rem;
+    font-family: inherit;
+    color: var(--main_color);
+    padding: 0 4rem;
+    font-size: 1.4rem !important;
+}
+
+form#single_program_booking_form {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: block;
+    padding: 0;
+}
+
+form .col-md-12 {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.new_bookly_form  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 28px;
+    font-size: 0.9rem;
+}
+
+.new_bookly_form.form-row .col-md-6.d-flex.justify-content-start.gap-one-rem label {
+    width: 7rem;
+}
+
+.gap-one-rem {
+    gap: 1rem;
+}
+
+.new_bookly_form.form-row .col-md-6.d-flex.justify-content-start.gap-one-rem .select2-container {
+    width: 20rem !important;
+}
+
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+
+.select2-container .select2-dropdown {
+    max-width: inherit !important;
+}
+
+.new_bookly_form label {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: var(--main_color);
+}
+
+.bookly_effective_date {
+    height: auto;
+    border: 0;
+    width: -webkit-fill-available;
+}
+
+.effective_date_section {
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem;
+    position: relative;
+    width: 20rem !important;
+}
+
+.effective_date_section .parsley-errors-list {
+    position: absolute;
+    bottom: 0;
+    right: -10rem;
+}
+
+.effective_date_section * {
+    cursor: pointer;
+}
+
+.class_days {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.class_days .parsley-errors-list {
+    position: absolute;
+    bottom: -1rem;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class_days .class_day {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+.start-time .select2-container:nth-of-type(1) {
+    width: 7rem !important;
+}
+
+.start-time .select2-container:nth-of-type(2) {
+    width: 4rem !important;
+}
+
+.class_day input {
+    width: 2.5em !important;
+    height: 2.5em !important;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0.5rem 0;
+}
+
+.class_day input:checked,
+.class_day input.checked{
+    background-color: #70c0e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.class_day input:checked:after,
+.class_day input.checked:after{
+    content: '\f00c';
+    color: #fff;
+    font-family: FontAwesome;
+}
+
+.custom-select {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+    width: -webkit-fill-available;
+}
+
+.schedule_booking_section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aeaeae36;
+    margin: 0.5rem 0 !important;
+    padding: 0rem 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+}
+
+.add_new_row .fa-calendar-plus {
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 5px #05d78640;
+    transition: all 0.3s ease-in-out;
+}
+
+.add_new_row .fa-calendar-plus:hover {
+    background: transparent;
+    color: #05d786;
+}
+
+.add_new_row {
+    background: #70c0e5;
+    margin: 0 auto;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.duration-div {
+    gap: 0.5rem;
+}
+
+.remove_row {
+    font-size: 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #939597;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    right: -3rem;
+    margin-top: 2.5rem;
+}
+
+.remove_row:hover {
+    color: #f14949 !important;
+}
+
+.time-duration {
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.datepicker-container {
+    z-index: 9999999 !important;
+}
+
+header#masthead {
+    /*z-index: 9999999 !important;*/
+}
+
+.schedule_booking_section {
+    position: relative;
+}
+
+.group-switch-section {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.floating-message.error .alert {
+    margin: 0 !important;
+}
+
+.add-mode .effective_date_section {
+    width: 100% !important;
+}
+
+.schedule_booking_section.removing,
+.schedule_booking_section.removing-col
+{
+    background: #ff141454;
+    color: #fff;
+}
+
+.schedule_booking_section.removing label, .schedule_booking_section.removing i {
+    color: #fff;
+}
+
+button.submit_booking,
+button.submit_blue {
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    padding: 0.5rem 3rem;
+    margin-top: 3rem;
+}
+
+form .col-md-3 {
+    width: 25% !important;
+    padding: 0.5rem;
+}
+
+form .col-md-4 {
+    width: 33% !important;
+    padding: 0.5rem;
+}
+
+form .col-md-6 {
+    width: 50%;
+    padding: 0.5rem;
+}
+
+.new_schedule {
+    display: flex;
+    justify-content: space-around;
+}
+
+form .col-md-8 {
+    width: 66% !important;
+    padding: 0.5rem;
+}
+
+form .col-md-12 {
+    width: 100% !important;
+    padding: 0.5rem;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+a.find_teacher:hover,
+.check_time_overlap:hover {
+    color: #fff;
+    background: #745b96;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+/*// css to momentarily display loader image*/
+.ajax_image_section {
+    display: flex;
+    width: 100%;
+    height: -webkit-fill-available;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffefebf;
+    z-index: 999999 !important;
+    opacity: 0.8;
+    border-radius: 10px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.load_gif {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.select2-container--default .select2-selection--multiple {
+    padding-bottom: 0;
+}
+
+.align-items-end{
+    align-items: end;
+}
+
+#success-modal i.far.fa-check-circle {
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    color: green;
+}
+
+#success-modal main#modal-1-content h3 {
+    color: green;
+    text-align: center;
+}
+
+#success-modal main#modal-1-content p {
+    text-align: center;
+}
+
+.learners-div .select2-container {
+    width: 100% !important;
+}
+
+a.find-learners {
+    background: var(--green);
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    padding: 0.3rem 0.5rem;
+    gap: 5%;
+    font-size: 0.9rem;
+    display: block;
+    border-radius: 5px;
+    font-weight: normal;
+    width: fit-content;
+    float: right;
+}
+
+a.find-learners * {
+    color: #fff;
+}
+
+/*.ajaxloader {*/
+/*    width: 12rem;*/
+/*    background: url('../images/ajax_loader.gif') no-repeat;*/
+/*    height: 12rem;*/
+/*    object-fit: cover;*/
+/*    border-radius: 150px;*/
+/*    top: 40%;*/
+/*    position: absolute;*/
+/*    transform: scale(0.6);*/
+/*}*/
+
+.ajaxloader{
+    position: relative;
+    left: auto;
+    top: auto;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    top: 3rem;
+}
+
+a.find_teacher,
+.check_time_overlap {
+    background: #997fba;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    font-size: small;
+}
+
+.col-md-12.d-flex.align-items-center.teacher_section {
+    flex-flow: column;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.is-open,
+.modal__overlay{
+    z-index: 99999999999;
+}
+
+.modal__container {
+    max-width: 100% !important;
+    width: 60%;
+    max-height: unset !important;
+}
+
+.teacher_select {
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+
+span.alert {
+    background: #e48989;
+    color: #fff;
+    padding: 0.2rem 2rem;
+    display: block;
+}
+
+.alert {
+    padding: 5px;
+    background-color: #ffa099;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px !important;
+    margin: 2rem 0 !important;
+}
+
+.attendance-teacher-table-section .dataTables_length {
+    display: none;
+}
+
+.modal__close {
+    background: #e8f0fe;
+    border: 0;
+    color: #000;
+    max-width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--main_color);
+
+}
+
+.size-1, .size-1 * {
+    font-size: 0.7rem !important;
+    color: var(--main_color);
+    line-height: normal;
+}
+
+#progress {
+    padding: 0;
+    list-style-type: none;
+    font-family: arial;
+    font-size: 12px;
+    clear: both;
+    line-height: 1em;
+    margin: 0 -1px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+#progress li {
+    float: left;
+    display: flex;
+    background: #f2f4f4;
+    color: #fff;
+    position: relative;
+    min-height: auto;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 0;
+    align-items: flex-end;
+    flex-flow: wrap;
+}
+
+#progress li:before {
+    content: '';
+    border-left: 0px solid #fff;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+#progress li:after {
+    content: '';
+    border-left: 16px solid #f2f4f4;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 20;
+    display: none;
+}
+
+#progress li.active {
+    background: #f2f4f4;
+}
+
+#progress li.active:after {
+    border-left-color: #f2f4f4;
+}
+
+.overlap {
+    background: #ea9393 !important;
+}
+
+.overlap a,
+.no_overlap a {
+    background: #fff !important;
+    color: #aa5252;
+}
+
+.overlap label,
+.no_overlap label {
+    color: #fff;
+}
+
+.no_overlap {
+    background: #05d786 !important;
+}
+
+.overlap a:hover, .no_overlap a:hover {
+    color: #666;
+}
+
+.effective_date_section i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.effective_date_section i:hover {
+    color: #1e73be;
+    transform: scale(1.1);
+}
+
+table.GeneratedTable * {
+    padding: 0;
+    margin: 0;
+    font-size: .7rem;
+    font-weight: 100;
+    border: 0;
+    text-align: center;
+    line-height: 20px;
+}
+
+.schedule_booking_section .parsley-errors-list {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    list-style: none;
+    color: red;
+}
+
+.schedule_booking_section .select2-results__option[aria-disabled="true"] {
+    display: none;
+}
+
+.align-items-end {
+    align-items: flex-end !important;
+}
+
+.schedule_booking_section li.parsley-required.no_overlap {
+    height: auto;
+    min-height: unset !important;
+    border: 0 !important;
+    color: #ef3838 !important;
+    margin: 0.3rem 0;
+}
+
+.schedule_booking_section li.parsley-required {
+    border: 0 !important;
+    background: unset !important;
+    min-height: unset !important;
+    margin: 0.5rem 0;
+    color: #be2626 !important;
+}
+
+
+
+form .parsley-errors-list {
+    margin: 0;
+}
+
+form li.parsley-required {
+    color: red !important;
+    min-height: unset !important;
+    border: 0 !important;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.bookly_start_time > div {
+    flex: 50% !important;
+    padding: 0 0.3rem;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+table.GeneratedTable {
+    margin: 0;
+    width: 35vw;
+    float: right;
+}
+
+.booking_rows {
+    width: 100%;
+}
+
+.time-duration {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    font-size: 1.5em;
+    padding: 0 4px 0 0;
+    position: relative;
+}
+
+.view-schedule-modal.modal {
+    width: 100% !important;
+    max-width: fit-content;
+}
+
+a.view-schedule {
+    background: #47b3e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+/********* Switch **********/
+
+:root{
+    --green: #75c9a4;
+    --blue: #70c0e5;
+    --danger: #ea3d2f;
+    --logo_blue: #47b3e6;
+}
+
+.switch {
+    --line: #e8ebfb;
+    --dot: #75c9a4;
+    --circle: #75c9a4;
+    --background: #fff;
+    --duration: .3s;
+    --text: #9EA0BE;
+    --shadow: 0 1px 3px rgba(0, 9, 61, 0.08);
+    cursor: pointer;
+    position: relative;
+    width: 30% !important;
+    height: 30px;
+    transform: rotate(180deg);
+}
+.switch:before {
+    content: "";
+    width: 60px;
+    height: 32px;
+    border-radius: 16px;
+    background: var(--background);
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: var(--shadow);
+}
+.switch input {
+    display: none;
+}
+.switch input + div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.switch input + div:before, .switch input + div:after {
+    --s: 1;
+    content: "";
+    position: absolute;
+    height: 4px;
+    top: 14px;
+    width: 24px;
+    background: var(--line);
+    transform: scaleX(var(--s));
+    transition: transform var(--duration) ease;
+    display: none;
+}
+.switch input + div:before {
+    --s: 0;
+    left: 4px;
+    transform-origin: 0 50%;
+    border-radius: 2px 0 0 2px;
+}
+.switch input + div:after {
+    left: 32px;
+    transform-origin: 100% 50%;
+    border-radius: 0 2px 2px 0;
+}
+.switch input + div span {
+    padding-left: 60px;
+    line-height: 28px;
+    color: var(--text);
+}
+.switch input + div span:before {
+    --x: 0;
+    --b: var(--circle);
+    --s: 4px;
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 var(--s) var(--b);
+    transform: translateX(var(--x));
+    transition: box-shadow var(--duration) ease, transform var(--duration) ease;
+}
+.switch input + div span:not(:empty) {
+    padding-left: 68px;
+}
+.switch input:checked + div:before {
+    --s: 1;
+}
+.switch input:checked + div:after {
+    --s: 0;
+}
+.switch input:checked + div span:before {
+    --x: 28px;
+    --s: 12px;
+    --b: var(--circle);
+}
+
+body .switch + .switch {
+    margin-top: 32px;
+}
+
+.switch-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.switch-row label:first-child, .switch-row label:last-child, .switch-row label.switch {
+    margin: 0;
+    width: -webkit-fill-available;
+    text-align: center;
+}
+
+/***** Muslimeto Calendar *****/
+
+.muslimeto_calendar div#bookly-tbs .form-row,
+.muslimeto_calendar .bookly-js-staff-pills{
+    display: none !important;
+}
+
+.teacher_select2 li[aria-disabled="true"] {
+    display: none;
+}
+
+.bb-group-select, #bb_group_id{
+    display: none;
+}
+
+label[for="existing"],
+label[for="family"]{
+    cursor: pointer;
+    margin: 0.5rem 0 !important;
+    display: block;
+}
+
+input#existing,
+.group_select input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.select2-container.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #47b3e6 !important;
+    color: #fdfdfd !important;
+}
+
+.select2-results__option[aria-selected] {
+    cursor: pointer;
+    background: #47b3e685 !important;
+    color: #fff !important;
+}
+
+.teacher_section {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin: 1rem 0 !important;
+}
+
+a.find_teacher * {
+    color: #fff !important;
+    margin-right: 0.5rem;
+}
+
+a.find_teacher.single {
+    background: #70c0e5;
+    display: none;
+}
+
+
+body .select2-container .select2-dropdown .select2-results__option {
+    border-radius: 0 !important;
+}
+
+.jquery-modal.blocker.current {
+    z-index: 9999999999 !important;
+}
+
+.jquery-modal.blocker.current .modal {
+    max-width: 70% !important;
+}
+
+p.single-child {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    border-bottom-left-radius: 50px;
+    padding: 0;
+}
+
+input.teacher-check,
+input.program-status,
+input.program-type{
+    display: none !important;
+}
+
+.event-actions {
+    padding-bottom: 0.2rem !important;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bb-event-url {
+    float: left;
+}
+
+.delete-calendar-program {
+    float: right;
+}
+
+.edit-program {
+    float: right;
+    margin: 0 0.5rem;
+    background: var(--green) !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+.edit-program *{
+    color: #fff !important;
+}
+
+label[for="parent_user_email"] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem auto;
+    /* border-bottom: 1px solid #ddd; */
+    padding-bottom: 1rem;
+    justify-content: space-around;
+}
+
+input#parent_user_email {
+    width: 50%;
+}
+
+
+
+i.fas.fa-search.find-user {
+    background: #007cff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+i.fas.fa-search.find-user:hover {
+    background: #007cffba;
+}
+
+.button.add-to-learners {
+    margin-right: 1rem;
+}
+
+.kanban-iframe {
+    height: 100% !important;
+}
+
+.kanban-page .elementor-widget-container{
+    height: 90vh;
+}
+
+ul#tabs-boards {
+    background: #f2f4f4 !important;
+}
+
+#tabs-boards a {
+    background: #8eb3e1 !important;
+    color: white !important;
+}
+
+footer#page-footer {
+    background: #8eb3e1 !important;
+}
+
+#delete-single-program-modal #modal-1-content {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    margin: 1rem 2rem;
+}
+
+.modal__title {
+    font-size: 1.2rem;
+}
+
+.btn.delete-program {
+    background: #ff6565;
+    color: #fff !important;
+    font-family: FONTAWESOME;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.btn.delete-program * {
+    color: #fff;
+}
+
+.ec-event-title {
+    display: none !important;
+}
+
+.delete-calendar-program i {
+    color: #fff;
+}
+
+.confirm-delete-program {
+    background: #f95e5e;
+    color: #fff;
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.7rem 2rem;
+    border-radius: 5px;
+}
+
+.confirm-delete-program  *{
+    color: #fff;
+}
+
+.dataTables_wrapper.collapse-search .dataTables_filter label {
+    color: transparent;
+}
+
+.dataTables_wrapper.collapse-search .dataTables_filter input {
+    margin-left: .5em;
+    width: 0;
+    height: 25px;
+    border: 0;
+    background-color: #ffffff00;
+    transition: all 0.5s ease-in-out;
+    padding-left: 30px !important;
+}
+
+input.expand-search {
+    width: 150px !important;
+    background-color: #fff !important;
+}
+
+
+.entry-header {
+    margin-bottom: 0 !important;
+}
+
+input.search, input[name=bbp_search], input[type=search] {
+    padding-left: 1.5rem !important;
+}
+
+.team_teachers,
+.parent_childs{
+    display: flex;
+    justify-content: initial;
+    margin: 1rem 0 2rem 0;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+a.get_staff_appointments.btn,
+a.get_child_appointments.btn {
+    background: #47b3e6;
+    color: #fff;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+}
+
+span.customer-error {
+    font-size: 0.8rem;
+    margin-bottom: 1rem !important;
+    display: block;
+}
+
+.group_select {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    justify-content: center;
+}
+
+a.btn.bb-event-url {
+    background: var(--blue) !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+a.btn.bb-event-url *{
+    color: #fff !important;
+}
+
+.event-title * {
+    font-size: 0.7rem !important;
+    color: #262626 !important;
+    opacity: 1 !important;
+    line-height: unset !important;
+    height: 10px;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.event-title {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#bookly-tbs .ec .ec-event:before {
+    z-index: -1;
+}
+
+#bookly-tbs .ec .ec-event {
+    cursor: pointer;
+    color: inherit;
+    padding: 0 5px;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.academic #bookly-tbs {
+    justify-content: flex-start!important;
+}
+
+.popover-body span i {
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+}
+
+#bookly-tbs .ec .bookly-ec-popover {
+    z-index: 999999999 !important;
+}
+
+.view-first {
+    flex-flow: row-reverse !important;
+}
+
+.flex-flow-wrap{
+    flex-flow: wrap;
+}
+
+.full-width{
+    width: 100% !important;
+}
+
+.submit_open_makeup label {
+    color: var(--main_color);
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.submit_open_makeup input, .submit_open_makeup select, .submit_open_makeup textarea {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.parent-select label {
+    flex: auto;
+}
+
+.save-attendance,
+.cancel-attendance,
+.attendance-status,
+.actual-mins-div,
+.late-mins-div{
+    display: none;
+}
+
+.active .save-attendance,
+.current_edit .save-attendance,
+.active .cancel-attendance,
+.current_edit .cancel-attendance,
+.active .attendance-status{
+    display: block !important;
+}
+
+.active .actual-mins-div{
+    display: flex !important;
+}
+
+.attendance-tr-edit p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.locked .attendance-status,
+.locked .actual-mins-div,
+.locked .late-mins-div{
+    display: none !important;
+}
+
+
+.notes textarea {
+    padding: 0.3rem;
+    margin-bottom: 0.2rem;
+    line-height: 1rem;
+    height: 45px !important;
+    width: 95%;
+}
+
+.notes textarea.progress-notes{
+    background: #cfe6f1;
+}
+
+.notes textarea.private-notes{
+    background: #edefef;
+}
+
+.attendance-capture .button {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    height: 30px;
+}
+
+.attendance-capture .button * {
+    color: #fff !important;
+}
+
+td.attendance-tr-edit {
+    padding-right: 10px !important;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+a.save-attendance.btn.button {
+    background: #70c8a1;
+}
+
+a.cancel-attendance.btn.button {
+    background: #e17979;
+}
+
+td.attendance-tr-edit label input {
+    width: 33%;
+    padding: 0.5rem;
+    height: 33px;
+}
+
+td.attendance-tr-edit label {
+    font-size: 1rem;
+    justify-content: space-between;
+    margin: 0 !important;
+    align-content: center !important;
+}
+
+td.attendance-tr-edit label span {
+    line-height: 2.52rem;
+}
+
+.attendance-capture tr.active {
+    background: #e5e5e5;
+}
+
+.attendance-capture th {
+    font-size: 0.9rem;
+    padding: 0.5rem 0 0 0;
+}
+
+th.learning-program {
+    width: 150px !important;
+}
+
+th.student-name {
+    width: 130px !important;
+}
+
+th.datetime {
+    width: 190px !important;
+}
+
+th.cid {
+    width: 80px !important;
+}
+
+.attendance-capture tbody td {
+    font-size: 0.9rem;
+    padding: 3px;
+}
+
+th.status {
+    width: 180px;
+}
+
+th.actions {
+    width: 100px;
+}
+
+.attendate-datepicker-section {
+    display: block;
+    justify-content: center;
+    align-content: center;
+    width: fit-content;
+    /*margin-bottom: 1rem;*/
+    /*margin-left: 16rem;*/
+}
+
+.attendate-datepicker-section .datepicker_trigger {
+    height: 100%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.attendance-date-picker {
+    width: 8rem;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 0 !important;
+    height: 30px;
+}
+
+.attendate-datepicker-section a,
+a.get_staff_appointments.btn{
+    border-radius: 5px;
+    padding: 0.7rem 0.5rem;
+    line-height: normal;
+}
+
+select.attendance-status option[disabled] {
+    display: none;
+}
+
+#floating-messages-container {
+    position: fixed;
+    top: 2.5rem;
+    right: 0;
+    width: 30%;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 18px;
+    height: fit-content;
+    z-index: 99999;
+}
+
+.floating-message{
+    z-index: 999999 !important;
+}
+
+.floating-message.info>.floating-message-icon {
+    display: none;
+}
+
+.floating-message.info {
+    background-color: #80d5af;
+    border-color: transparent;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.8rem;
+    line-height: 0;
+}
+
+.floating-message {
+    position: relative;
+    border: 1px solid;
+    padding: 0.7rem 2rem;
+    margin-bottom: 4px;
+    float: right;
+    clear: right;
+    margin-right: 4px;
+    border-radius: 5px;
+}
+
+.floating-message>.floating-message-close {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    border: 1px solid;
+    line-height: 11px;
+    margin: 1px 2px;
+    cursor: pointer;
+    font-size: 1em;
+    transform: translate(0, -50%);
+    filter: brightness(10);
+}
+
+#floating-messages-container span.floating-message-close img {
+    width: 0.6rem !important;
+    height: 0.6rem !important;
+}
+
+.floating-message.info>.floating-message-close {
+    border-color: transparent;
+    color: #fff;
+}
+
+.dataTables_length * {
+    font-size: 0.8rem !important;
+}
+
+.dataTables_length select {
+    height: 30px;
+    padding-right: 30px;
+}
+
+.attendate-datepicker-section a {
+    padding: 0.3rem 0.5rem;
+    line-height: normal;
+    height: 30px;
+}
+
+a.reset_appointments_view.button,
+a.button.filter-attendance-date{
+    background: #47b3e6;
+}
+
+.dataTables_filter * {
+    font-size: 0.8rem;
+}
+
+.dataTables_filter input {
+    height: 30px;
+}
+
+a.reset_appointments_view.button {
+    margin-right: 1rem;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 0 !important;
+}
+
+.dataTables_paginate a {
+    color: var(--main_color) !important;
+}
+
+table.dataTable thead .sorting {
+    background-position-y: 14px !important;
+}
+
+.dataTables_info {
+    clear: both;
+    float: left;
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+}
+
+.dataTables_paginate {
+    float: right;
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+}
+
+p.empty-attendance {
+    margin-left: 20.5rem;
+}
+
+.floating-message.error .floating-message-icon {
+    display: none;
+}
+
+.floating-message.error p {
+    padding: 0;
+    background: unset;
+    margin: 0;
+}
+
+span.floating-message-close {
+    border: 0 !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+    line-height: 1rem !important;
+}
+
+.floating-message.error {
+    background-color: #e48989;
+    border-color: transparent;
+    color: #ffffff;
+}
+
+select.attendance-status option {
+    color: #fff;
+    font-weight: bold;
+    font-family: inherit;
+    text-shadow: 0 0 #777;
+}
+
+div#delete-single-program-modal footer.modal__footer {
+    text-align: center;
+}
+
+span.success {
+    background: #1CD991;
+    color: #fff;
+    padding: 1rem;
+    display: block;
+}
+
+button.modal__btn.permanent-delete-program.active {
+    background: #f95e5e;
+    color: #fff;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+div#delete-single-program-modal .modal__footer {
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.modal__btn.permanent-delete-program *{
+    color: #fff;
+}
+
+.floating-message.warning .floating-message-icon {
+    display: none;
+}
+
+.floating-message.warning {
+    background-color: #f1f1b3;
+    border-color: #bbbb3c00;
+    color: #d1b10c;
+    font-weight: 600;
+}
+
+.floating-message.warning>.floating-message-close {
+    border-color: transparent !important;
+    color: #d1b10c !important;
+}
+
+.team_teachers.attendance-mode {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    background: #dddddd61;
+}
+
+a.reset_appointments_view.btn {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+ul#progress a {
+    background: var(--green);
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single,
+select[disabled="disabled"]{
+    background-color: #eee;
+    cursor: default;
+    opacity: 0.5;
+}
+
+.stored_schedule {
+    background: #a7e7cb82;
+}
+
+.teacher_select select option:disabled {
+    display: none !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ddd !important;
+}
+
+.add_new_schedule_section {
+    text-align: end;
+}
+
+.bordered-section {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 100% !important;
+}
+
+.edit-mode button.submit_booking, .edit-mode button.submit_blue {
+    margin: 0;
+    background: var(--blue);
+}
+
+.edit-mode a.find_teacher.single {
+    display: block;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: var(--green);
+}
+
+.add_new_schedule_section {
+    text-align: end;
+}
+
+.edit-mode .check_action_btns {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.new_schedule_section_rows .remove_row {
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    right: unset;
+    top: unset !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: auto;
+    flex: 0 0 4%;
+}
+
+.new_schedule .bookly_start_time > div {
+    gap: 0.3rem;
+    padding: 0;
+    padding-right: 0.3rem;
+}
+
+.new_schedule .bookly_start_time {
+    padding: 0;
+}
+
+.edit-mode button.submit_booking.disabled,
+.edit-mode button.submit_blue.disabled,
+.edit-mode .update-learners.disabled {
+    background: #ddd !important;
+    color: #fff;
+}
+
+button.submit_booking.disabled:hover {
+    background: #ddd !important;
+}
+
+span.select2-selection.select2-selection--single {
+    display: flex;
+    justify-content: initial;
+    align-items: center;
+}
+
+.teacher_dropdown li[aria-disabled="true"] {
+    display: none;
+}
+
+.user_cannot_edit .edit-actions {
+    display: none !important;
+}
+
+.switch-field.edit-options {
+    text-align: center;
+    width: 100% !important;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-field.edit-options input:checked + label {
+    background-color: var(--green);
+}
+
+.switch-field.edit-options label {
+    font-size: 1rem;
+}
+
+.edit-mode a.find_teacher.all.edit-mode-check {
+    display: block;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.edit-mode .teacher_section {
+    border: 0;
+}
+
+a.get_staff_appointments.btn {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.schedule_booking_section.stored_schedule {
+    position: relative;
+}
+
+.delete-confirm {
+    background: #f2f4f4c4;
+    position: absolute;
+    width: 98%;
+    z-index: 1;
+    height: 90%;
+    top: 0.5rem;
+    left: 0.6rem;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(110%);
+    opacity: 0;
+}
+
+.delete-confirm.show{
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 99999999;
+}
+
+a.confirm-delete-action,
+a.cancel-delete-action {
+    background: #f14949;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+a.cancel-delete-action {
+    background: #cfc8c8;
+}
+
+a.cancel-delete-action * {
+    color: #fff;
+}
+
+a.confirm-delete-action *{
+    color: #fff;
+}
+
+.delete-confirm p {
+    text-align: center;
+}
+
+.delete-action-btns {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+}
+
+.delete-confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.delete-confirm h3 {
+    text-align: center;
+    margin: 1rem;
+    color: var(--main-color);
+}
+
+.delete-action-btns a:hover {
+    color: #fff !important;
+}
+
+.switch-field input {
+    display: none !important;
+}
+
+.switch-field input:checked + label {
+    background-color: #a5dc86;
+    box-shadow: none;
+    color: #fff;
+    border-radius: 50px;
+    border: 0;
+    box-shadow: 0 0 5px #9ccd807d;
+}
+
+.switch-field label {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.3rem;
+    line-height: normal;
+    text-align: center;
+    padding: 0.4rem 1.5rem;
+    margin-right: 0;
+    border: 0;
+    box-shadow: unset;
+    transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+#bookly-tbs .ec .ec-event {
+    cursor: pointer;
+    color: inherit;
+    padding: 2px 2px 2px 5px;
+    border-radius: 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    margin-top: 1px;
+}
+
+a.paste-btn, a.paste-btn:hover {
+    background: var(--green);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+a.paste-btn *{
+    color: #fff;
+}
+
+.delete-calendar-program {
+    background: #ff7600 !important;
+    border-color: #ff7600 !important;
+}
+
+.delete-calendar-program.admin_delete {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+    padding: 0.23rem 0.5rem !important;
+}
+
+.validate_delete_result p {
+    margin: 0;
+}
+
+.validate_delete_result span {
+    margin: 1rem 0 !important;
+    border-radius: 5px;
+}
+
+.parent-status-table tbody * {
+    font-size: 0.9rem;
+    padding: 0;
+    margin: 0;
+}
+
+.parent-status-table th {
+    padding: 0.5rem 0 !important;
+    font-size: 0.9rem;
+}
+
+table.dataTable.parent-status-table thead .sorting {
+    background-size: 10px;
+    background-position-x: 90%;
+    background-position-y: 70% !important;
+}
+
+.parent-status-table th {
+    text-align: center !important;
+    vertical-align: initial;
+}
+
+.parent-status-table tbody td {
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 100;
+}
+
+a.parent-name {
+    font-weight: bold;
+}
+
+.parent-status-table tbody td:nth-of-type(1), .parent-status-table tbody td:nth-of-type(2) {
+    text-align: initial;
+}
+
+.parent-status-table th:nth-of-type(1), .parent-status-table th:nth-of-type(2) {
+    text-align: initial !important;
+}
+
+.parent-status-table th, .parent-status-table th * {
+    text-align: center;
+    font-weight: bold !important;
+}
+
+.parent-status-table tbody tr:hover {
+    background: #ffffff7a;
+}
+
+.parent-status-table tbody tr {
+    transition: all 0.3s ease-in-out;
+}
+
+.parent-status-table th p {
+    margin: 0;
+}
+
+span.non-renewal {
+    color: #fab000;
+}
+
+span.has-balance-due {
+    color: var(--danger);
+}
+
+strong.danger {
+    color: var(--danger);
+}
+
+.dataTables_wrapper {
+    width: 100% !important;
+}
+
+a.user_billing_sync_stats i {
+    color: var(--main_color);
+}
+
+table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc {
+    background-position: 75% 75%;
+}
+
+
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    /* bottom: 1rem; */
+    /* right: -8rem; */
+    padding: 7px;
+    width: fit-content;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    width: max-content;
+    width: -moz-max-content;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+    display: none;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+section.live-agents h4 {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section.live-agents ul {
+    list-style: none;
+    margin: 0 !important;
+}
+
+section.live-agents ul li {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+section.live-agents ul li i {
+    color: #cbcfcf;
+}
+
+section.live-agents ul li i.active {
+    color: var(--logo_blue);
+}
+
+.program-details,
+.subcription-details{
+    display: flex;
+    font-size: 0.9rem;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.program-details span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    flex: auto;
+}
+
+.program-data a {
+    background: var(--logo_blue);
+    padding: 3px !important;
+    border-radius: 3px;
+}
+
+.program-data a *{
+    color: #fff;
+}
+
+.subcription-details span {
+    height: max-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    flex: auto;
+}
+
+.subcription-details span{
+    width: 25%;
+}
+
+.program-details span {
+    width: 10%;
+    position: initial;
+}
+
+.program-data a.edit-btn {
+    background: var(--green);
+    margin: 0 0.5rem;
+}
+
+.mismatch-details {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.program-data *,
+.subcription-data *{
+    font-size: 0.9rem;
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+
+.program-data td,
+.subcription-data td{
+    border-top: 1px solid #ddd;
+    padding: 0.2rem 0;
+}
+
+.mismatch-details.support-dashboard-item-number span {
+    font-size: 1rem;
+}
+
+.program-data tr th:first-child,
+.subcription-data tr th:first-child,
+.program-data tr td:first-child,
+.subcription-data tr td:first-child {
+    text-align: initial !important;
+}
+
+
+
+select[name="assigned_to"] {
+    font-size: 0.9rem;
+    height: 25px;
+    padding: 0 0.3rem;
+    line-height: initial;
+}
+
+select[name="assigned_to"] {
+    font-size: 0.9rem;
+    height: 25px;
+    padding: 0 0.3rem;
+    line-height: initial;
+}
+
+a.assign_to i {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+a.assign_to {
+    background: var(--green);
+    padding: 0.2rem;
+    border-radius: 3px;
+}
+
+.support-dash-notification span.material-icons {
+    font-size: 1rem;
+}
+
+
+.upcoming-trouble table td {
+    background: unset !important;
+    font-size: 0.8rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.upcoming-trouble .dataTables_info {
+    display: none;
+}
+
+.upcoming-trouble .dataTables_wrapper {
+    margin: 0;
+}
+
+.upcoming-trouble table{
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.radioBtns{
+    display: inline-flex;
+    background: #fff;
+    height: auto;
+    width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+.radioBtns .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    transition: all 0.3s ease;
+}
+.radioBtns .option .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+}
+.radioBtns .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: var(--logo_blue);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+input[type="radio"]{
+    display: none;
+}
+#prev_day:checked:checked ~ .prev_day,
+#next_day:checked:checked ~ .next_day{
+    border-color: var(--logo_blue);
+    background: var(--logo_blue);
+}
+#prev_day:checked:checked ~ .prev_day .dot,
+#next_day:checked:checked ~ .next_day .dot{
+    background: #fff;
+}
+#prev_day:checked:checked ~ .prev_day .dot::before,
+#next_day:checked:checked ~ .next_day .dot::before{
+    opacity: 1;
+    transform: scale(1);
+}
+.radioBtns .option span{
+    font-size: 1rem;
+    color: #808080;
+}
+#prev_day:checked:checked ~ .prev_day span,
+#next_day:checked:checked ~ .next_day span{
+    color: #fff;
+}
+
+.radioBtns.duplicate-actions input {
+    display: none;
+}
+
+.radioBtns.duplicate-actions {
+    margin: 0 auto;
+    display: flex;
+}
+
+div#single-event-modal footer.modal__footer {
+    text-align: center;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#single-event-modal i.far.fa-trash-alt {
+    color: var(--danger);
+    margin: 0 0.5rem;
+}
+
+/**** action loader use in any form or ajax call ***/
+.action_loader {
+    position: absolute;
+    background: #d3d3d38a;
+    width: 100%;
+    height: -webkit-fill-available;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.action_loader #loader {
+    top: 35%;
+}
+
+a.btn.duplicate-event {
+    float: right;
+    background: var(--bs-warning) !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+a.btn.delete-single-event {
+    float: right;
+    margin: 0 0.5rem;
+    background: var(--bs-warning) !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+a.btn.duplicate-event *,
+a.btn.delete-single-event *{
+    color: #fff;
+}
+
+/****** Side panel ********/
+.panel-open {
+    right: 0 !important;
+}
+
+.panel-toggle {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.panel-toggle.open {
+    opacity: 0.5;
+    -webkit-opacity: 0.5;
+    -ms-opacity: 0.5;
+    -moz-opacity: 0.5;
+    -o-opacity: 0.5;
+}
+
+.panel-toggle-grippy {
+    border-bottom: 5px solid #fff;
+    border-top: 5px solid #fff;
+    float: left;
+    line-height: 0;
+    margin-right: 1em;
+    padding: 5px 0;
+    text-indent: -999em;
+    width: 35px;
+}
+.panel-toggle-grippy:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 5px;
+}
+
+.panel-toggle-label {
+    float: left;
+    font-weight: 700;
+    height: 25px;
+    letter-spacing: 1px;
+    line-height: 25px;
+    text-transform: uppercase;
+}
+
+.hidden-panel {
+    background: #e6e6e6;
+    height: 100%;
+    position: relative;
+    right: 50vw;
+    top: 0;
+    width: 50vw;
+    z-index: 9999;
+    overflow-y: scroll;
+}
+.hidden-panel a {
+    color: #999;
+    transition: color 0.3s ease-out;
+    -webkit-transition: color 0.3s ease-out;
+    -ms-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+}
+.hidden-panel a:hover {
+    color: #fff;
+}
+
+.hidden-panel-close {
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ababab;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.hidden-panel-close:hover {
+    background: transparent;
+    color: #505050;
+    border: 1px solid #505050;
+}
+
+
+
+.panel-header {
+    width: 100%;
+    height: 5vh;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    padding: 1rem 2rem;
+}
+
+.hidden-panel-close:hover {
+    color: #fff;
+}
+
+.hidden-panel-content {
+    padding: 2rem;
+}
+
+
+.side-panel {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition: left 0.3s ease-in-out;
+    -webkit-transition: left 0.3s ease-in-out;
+    -ms-transition: left 0.3s ease-in-out;
+    -moz-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.side-open {
+    background: #0000009e;
+    z-index: 9999;
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+    position: fixed;
+}
+
+
+.bookly-popover.bs-popover-top.bookly-ec-popover {
+    min-width: 16rem;
+}
+
+.event-title p.event-time {
+    font-size: 0.65rem !important;
+}
+
+.dataTable,
+.dataTable td,
+.dataTable th {
+    border: 0 !important;
+}
+
+.alert.sm {
+    font-size: 0.8rem;
+    padding: 0.2rem 1rem;
+    margin: 0.5rem 0 !important;
+}
+
+div#overview {
+    padding: 0.6rem 0 !important;
+    margin: 0 !important;
+}
+
+.find-parent-result {
+    width: 80%;
+    text-align: initial;
+}
+
+.find-parent-result .danger {
+    color: var(--danger);
+}
+
+.academic-attendance p {
+    margin: 0;
+}
+
+.cancel-session {
+    float: right;
+}
+
+.cancel-session * {
+    color: #fff;
+}
+
+div#cancel-session .modal-body {
+    min-height: 15vh;
+}
+
+i.fal, i.fas, i.far {
+    font-family: 'FontAwesome';
+}
+
+.class-details .header,
+.class-details .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.class-details .header * {
+    margin: 0;
+}
+
+.class-details .action-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.class-details {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+a.copy-cred {
+    background: #e2a35b;
+    padding: 0.2rem 0.4rem !important;
+}
+
+.class-details .footer {
+    justify-content: end;
+}
+
+.no-makeup-restore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.no-makeup-restore i {
+    color: #f3b768;
+    font-size: 2rem;
+}
+
+.no-makeup-restore p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.full_calendar .ec-body{
+    overflow: scroll !important;
+}
+
+.calendar-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-details .header {
+    flex-flow: column;
+    align-items: baseline;
+}
+
+span.makeup-session {
+    background: #fff;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    color: orange !important;
+    font-weight: bold;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: 1px solid orange;
+    font-size: 0.6rem !important;
+}
+
+
+.event-actions .makeup-session {
+    position: relative;
+    top: unset;
+    right: unset;
+}
+
+
+.makeup-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.makeup-flag-btn {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: unset !important;
+    color: orange !important;
+    padding: 0 0.2rem !important;
+    font-size: 0.6rem !important;
+    border-radius: 5px !important;
+}
+
+.makeup-flag-btn:hover {
+    box-shadow: unset !important;
+}
+
+div#cancel-session .action-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.event-title.pending span.makeup-session.pending * {
+    color: orange !important;
+    font-size: 0.6rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.learners-list {
+    align-items: baseline;
+}
+
+.edit-mode .update-learners {
+    margin: 0;
+    background: var(--blue);
+    color: #fff;
+    border: 0;
+}
+
+.edit-mode .switch-row.teachers-switch {
+    display: none !important;
+}
+
+.link-group-options i {
+    color: var(--green);
+    font-size: 1rem;
+    margin: 0;
+}

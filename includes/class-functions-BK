@@ -1,0 +1,740 @@
+<?php
+@ini_set( 'display_errors', 1 );
+
+define("BOOKLY_WEEK_DAYS_INDEX", [
+    1 => 'sun',
+    2 => 'mon',
+    3 => 'tue',
+    4 => 'wed',
+    5 => 'thu',
+    6 =>'fri',
+    7 => 'sat'
+]);
+
+// default week start with mon
+define("WEEK_DAYS_INDEX", [
+    1 => 'mon',
+    2 => 'tue',
+    3 => 'wed',
+    4 => 'thu',
+    5 =>'fri',
+    6 => 'sat',
+    7 => 'sun',
+]);
+
+
+function pre_dump($arr)
+{
+
+    echo '<pre>';
+    var_dump($arr);
+    echo '</pre>';
+
+}
+
+function convertToHoursMins($time) {
+
+    $hours    = floor($time / 60);
+    $minutes  = ($time % 60);
+
+
+    if($minutes == 0){
+
+        if($hours == 1){
+
+            $output_format = '%02d hour ';
+
+        }else{
+
+            $output_format = '%02d hours ';
+        }
+
+
+//        $hoursToMinutes = sprintf($output_format, $hours);
+
+        $hoursToMinutes = array(
+            'hours' => (int) $hours,
+            'minutes' => (int) $minutes
+        );
+
+    }else if($hours == 0){
+
+        if ($minutes < 10) {
+            $minutes = '0' . $minutes;
+        }
+
+        if($minutes == 1){
+
+            $output_format  = ' %02d minute ';
+
+        }else{
+
+            $output_format  = ' %02d minutes ';
+        }
+
+//        $hoursToMinutes = sprintf($output_format,  $minutes);
+
+        $hoursToMinutes = array(
+            'hours' => (int) $hours,
+            'minutes' => (int) $minutes
+        );
+
+    }else {
+
+        if($hours == 1){
+
+            $output_format = '%02d hour %02d minutes';
+
+        }else{
+
+            $output_format = '%02d hours %02d minutes';
+        }
+
+//        $hoursToMinutes = sprintf($output_format, $hours, $minutes);
+
+        $hoursToMinutes = array(
+            'hours' => (int) $hours,
+            'minutes' => (int) $minutes
+        );
+    }
+
+    return $hoursToMinutes;
+
+}
+
+function convertFullTimetoHoursMinutes ($full_time) {
+//    $sTime   = '21:00:00';
+    $sTime = $full_time;
+    $oTime   = new DateTime($sTime);
+    $aOutput = array();
+    if ($oTime->format('G') > 0) {
+//        $aOutput[] = $oTime->format('G') . ' hours';
+        $aOutput['hours'] = $oTime->format('G');
+    }
+//    $aOutput[] = $oTime->format('i') . ' minutes';
+    $aOutput['minutes'] = $oTime->format('i');
+//    $aOutput[] = $oTime->format('s') . ' seconds';
+//    echo implode(', ', $aOutput);
+    return $aOutput;
+}
+
+function show_date($value, $key) {
+    //echo '<br>' . $key, ': ', date('r', $value), PHP_EOL ;
+}
+
+function checkTimeOverlap($booking_stored_start_date, $booking_stored_end_date, $booking_user_start_date, $booking_user_end_date){
+
+    $stored_booking_date_record = array('stored_start' => strtotime($booking_stored_start_date), 'stored_end' => strtotime($booking_stored_end_date));
+    $user_booking_date_record = array('user_start' => strtotime($booking_user_start_date), 'user_end' => strtotime($booking_user_end_date));
+
+//    array_walk($stored_booking_date_record, 'show_date');
+//    array_walk($user_booking_date_record, 'show_date');
+
+    echo '<br>User_start: '. date('r', $user_booking_date_record['user_start']) ;
+    echo '<br>User_end: '. date('r', $user_booking_date_record['user_end']) ;
+    echo '<br>appointment_start: '. date('r', $stored_booking_date_record['stored_start']) ;
+    echo '<br>appointment_end: '. date('r', $stored_booking_date_record['stored_end']) ;
+
+
+    $overlap_status = false;
+    if( ($user_booking_date_record['user_start'] >= $stored_booking_date_record['stored_start'] ) && ( $user_booking_date_record['user_end'] <= $stored_booking_date_record['stored_end'] ) ){
+        echo '<br> <span class="alert"> Conflict handling in appointment </span> <br>';
+        $overlap_status = true;
+    } else {
+        echo '<br> No Conflict OK <br>';
+        $overlap_status = false;
+    }
+
+    return $overlap_status;
+
+}
+
+function checkTeacherSchedule ($bookly_class_days, $schedule_start_dates, $schedule_end_dates, $user_start_time, $user_end_time ) {
+
+    $overlap_status = [];
+
+    $schedule_start_dates_keys = array_keys($schedule_start_dates);
+
+
+    foreach ( $bookly_class_days as $bookly_class_day ):
+
+        $search_day_index[] = array_search( $bookly_class_day, $schedule_start_dates_keys );
+
+
+    endforeach;
+
+
+    foreach ( $search_day_index as $day_index ):
+
+        $day_name = $schedule_start_dates_keys[$day_index];
+
+        for( $i=0; $i<count($schedule_start_dates[$day_name]); $i++ ):
+
+
+            // get closest time for user_search_time in $schedule_start_dates for teacher and get it's index
+            $timestamp = strtotime($user_start_time);
+            $diff = null;
+            $index = null;
+
+            foreach ($schedule_start_dates[$day_name] as $key => $time) {
+                $currDiff = abs($timestamp - strtotime($time));
+                if (is_null($diff) || $currDiff < $diff) {
+                    $index = $key;
+                    $diff = $currDiff;
+                }
+            }
+
+            $closest_start_time = $schedule_start_dates[$day_name][$index];
+            $closes_end_time = $schedule_end_dates[$day_name][$index];
+
+            $stored_booking_date_record = array('stored_start' => strtotime($closest_start_time), 'stored_end' => strtotime($closes_end_time));
+            $user_booking_date_record = array('user_start' => strtotime($user_start_time), 'user_end' => strtotime($user_end_time));
+
+            array_walk($stored_booking_date_record, 'show_date');
+            array_walk($user_booking_date_record, 'show_date');
+
+            if ( ( $user_booking_date_record['user_start'] >= $stored_booking_date_record['stored_start'] ) && ( $user_booking_date_record['user_end'] <= $stored_booking_date_record['stored_end'] ) )  {
+                //echo '<br> No Conflict OK <br>';
+                $overlap_status[] = false;
+            } else {
+                //echo '<br> <span class="alert"> Conflict handling in teacher schedule </span> <br>';
+                $overlap_status[] = true;
+            }
+
+        endfor;
+
+
+    endforeach;
+
+
+    if (array_search(true, $overlap_status) !== false) {
+        // then I found something
+        return true;
+    } else {
+        // I did not find anything
+        return false;
+    }
+
+
+
+}
+
+function sortTimeArray ( $time_array ) {
+
+    $time_array = array_unique( $time_array );
+    foreach ( $time_array as $item ){
+        $new_time_strtotime[$item] = strtotime( $item );
+    }
+
+    sort($new_time_strtotime);
+
+    foreach ( $new_time_strtotime as $item ){
+        $sorted_time_array[] = date ("H:i:s", $item);
+    }
+
+    return $sorted_time_array;
+
+}
+
+// function to convert given date-time to wordpress timezone
+function convertTimeZone ( $time, $timezone ) {
+
+    // get wp timezone
+    $wp_timezone = get_option('timezone_string');
+
+    $date = new DateTime($time, new DateTimeZone($timezone));
+    //echo $date->format('H:i:s') . "<br>";
+
+    $date->setTimezone(new DateTimeZone($wp_timezone));
+    return $date->format('Y-m-d H:i:s');
+
+}
+
+/**
+ * What is the overlap, in minutes, of two time periods?
+ *
+ * @param $startDate1   string
+ * @param $endDate1     string
+ * @param $startDate2   string
+ * @param $endDate2     string
+ * @returns int     Overlap in minutes
+ */
+function overlapInMinutes($startDate1, $endDate1, $startDate2, $endDate2)
+{
+    // Figure out which is the later start time
+    $lastStart = $startDate1 >= $startDate2 ? $startDate1 : $startDate2;
+    // Convert that to an integer
+    $lastStart = strtotime($lastStart);
+
+    // Figure out which is the earlier end time
+    $firstEnd = $endDate1 <= $endDate2 ? $endDate1 : $endDate2;
+    // Convert that to an integer
+    $firstEnd = strtotime($firstEnd);
+
+    // Subtract the two, divide by 60 to convert seconds to minutes, and round down
+    $overlap = floor( ($firstEnd - $lastStart) / 60 );
+
+    // If the answer is greater than 0 use it.
+    // If not, there is no overlap.
+
+    $overlap_in_minutes = $overlap > 0 ? $overlap : 0;
+    return $overlap_in_minutes;
+}
+
+function getReccurringDates($start_date, $number_of_repeats){
+    // get recurring dates start from that day
+    // Array for dates
+    $dates = [];
+
+    // Get next thursday
+    $date = strtotime($start_date);
+    $dates[] = $date;
+
+    // Get the next four
+    for ($i = 0; $i < $number_of_repeats; $i++)
+    {
+        $date = strtotime('+1 week', $date);
+        $dates[] = $date;
+    }
+
+    // Echo dates
+    foreach ($dates as $date)
+        $nextDays[] = date('Y-m-d', $date) . '<br>';
+
+    unset($nextDays[0]);
+    return $nextDays;
+}
+
+// get week number for given date
+function getweekNumber ($date) {
+    // get week number
+    $dateTime = new DateTime($date);
+    $weekNum = $dateTime->format("W");
+    return $weekNum;
+}
+
+// get day date next to certain date
+function getNextDayDate ($refrence_date, $day_name) {
+
+    $timestamp = strtotime($refrence_date);
+
+    return date('Y-m-d',
+        strtotime("next " . $day_name . date('Y-m-d', $timestamp), $timestamp)
+    );
+}
+
+// get day date prev to certain date
+function getPrevDayDate ($refrence_date, $day_index) {
+
+    $timestamp = strtotime($refrence_date);
+
+    return date("Y-m-d", strtotime($day_index ." day", $timestamp));
+}
+
+
+/******
+ * Ajax action to get bookly category services
+ ******/
+
+add_action('wp_ajax_get_bookly_category', 'get_bookly_category');
+add_action( 'wp_ajax_nopriv_get_bookly_category', 'get_bookly_category' );
+function get_bookly_category(){
+
+    $bookly_category_id = $_POST['bookly_category_id'];
+
+    // get services in this category as options
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'bookly_services';
+    $services = $wpdb->get_results(
+        "SELECT * FROM $table_name WHERE category_id = {$bookly_category_id}"
+    );
+    $wpdb->flush();
+
+    $services_options = '<option selected disabled>Choose Service...</option>';
+    foreach ( $services as $service ):
+        $services_options .= '<option value="'. $service->id .'"> ' . $service->title .' </option>';
+    endforeach;
+
+    echo $services_options;
+
+    wp_die();
+
+
+}
+
+/******
+ * Ajax action to get bookly class teacher
+ ******/
+
+add_action('wp_ajax_get_class_teacher', 'get_class_teacher');
+add_action( 'wp_ajax_nopriv_get_class_teacher', 'get_class_teacher' );
+function get_class_teacher(){
+
+    $bookly_service_id = $_POST['bookly_service_id'];
+
+    // get teachers related to subject
+    global $wpdb;
+    $bookly_staff_services_table = $wpdb->prefix . 'bookly_staff_services';
+    $staff_results = $wpdb->get_results(
+        "SELECT * FROM $bookly_staff_services_table WHERE service_id = {$bookly_service_id}"
+    );
+    $wpdb->flush();
+
+    // return with list of staff members
+    $staff_select_options = '<option selected disabled>Choose Teacher...</option>';
+    foreach ($staff_results as $staff_result):
+        $staff_id = (int) $staff_result->staff_id;
+        // query in bookly_staff table
+        $bookly_staff_table = $wpdb->prefix . 'bookly_staff';
+        $staff_table_results = $wpdb->get_results(
+            "SELECT * FROM $bookly_staff_table WHERE id = {$staff_id}"
+        );
+        $wpdb->flush();
+
+        foreach ( $staff_table_results as $staff_table_result ):
+            $staff_wp_user_id = (int) $staff_table_result-> wp_user_id;
+            $staff_full_name = $staff_table_result->full_name;
+            $staff_wp_user_obj = get_user_by( 'id', $staff_wp_user_id );
+            $staff_select_options .= '<option value="'. $staff_id .'"> ' . $staff_full_name . ' - ' . $staff_wp_user_obj->data->user_email .' </option>';
+        endforeach;
+    endforeach;
+
+    echo $staff_select_options;
+
+
+    wp_die();
+
+
+}
+
+
+/******
+ * Ajax action to check time overlap for teacher_id
+ ******/
+
+add_action('wp_ajax_check_time_overlap', 'check_time_overlap');
+add_action( 'wp_ajax_nopriv_check_time_overlap', 'check_time_overlap' );
+function check_time_overlap(){
+
+
+//    $bookly_teacher_id= $_POST['bookly_teacher_id'];
+    $bookly_teacher_id= 6;
+    $bookly_user_timezone = $_POST['bookly_user_timezone'];
+    $bookly_start_time = $_POST['bookly_start_time'];
+    $bookly_class_duration = $_POST['bookly_class_duration'];
+    $bookly_effective_date = $_POST['bookly_effective_date'];
+    $bookly_effective_day = strtolower( date('D', strtotime($bookly_effective_date)) );
+    $bookly_end_hours = $bookly_start_time + convertToHoursMins($bookly_class_duration)['hours'];
+    $bookly_end_minutes = convertToHoursMins($bookly_class_duration)['minutes'];
+    $bookly_start_minutes = '00';
+    $string_start_date = strtotime( $bookly_effective_date . ' ' . $bookly_start_time . ':' . $bookly_start_minutes ); // mm/dd/yyyy H:m
+    $booking_user_start_date = convertTimeZone( date ("Y-m-d H:i:s", $string_start_date), $bookly_user_timezone);
+    $string_end_date = strtotime( $bookly_effective_date . ' ' . $bookly_end_hours . ':' . $bookly_end_minutes ); // mm/dd/yyyy H:m
+    $booking_user_end_date = convertTimeZone( date ("Y-m-d H:i:s", $string_end_date), $bookly_user_timezone );
+    $bookly_class_days = $_POST['bookly_class_days'];
+    $start_after_break= [];
+    $end_before_break = [];
+
+    // search effective_day in week_days_list
+    $effective_day_index = array_search($bookly_effective_day, WEEK_DAYS_INDEX);
+    foreach ($bookly_class_days as $bookly_class_day):
+
+        $day_index = array_search($bookly_class_day, WEEK_DAYS_INDEX);
+        if( $day_index > $effective_day_index ){
+            $new_effective_start_date = getNextDayDate( $bookly_effective_date, $bookly_class_day );
+            $string_start_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_start_time . ':' . $bookly_start_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_start_date = convertTimeZone( date ("Y-m-d H:i:s", $string_start_effective_date), $bookly_user_timezone);
+            $string_end_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_end_hours . ':' . $bookly_end_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_end_date = convertTimeZone( date ("Y-m-d H:i:s", $string_end_effective_date), $bookly_user_timezone );
+
+            $new_effective_dates[] = array(
+                'start_user_datetime' => $new_booking_user_start_date,
+                'end_user_datetime' => $new_booking_user_end_date
+            );
+
+        } else if( $day_index < $effective_day_index ){
+            $day_index_difference = 7 - ( $effective_day_index - $day_index );
+
+            $new_effective_start_date = getPrevDayDate( $bookly_effective_date, $day_index_difference );
+            $string_start_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_start_time . ':' . $bookly_start_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_start_date = convertTimeZone( date ("Y-m-d H:i:s", $string_start_effective_date), $bookly_user_timezone);
+            $string_end_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_end_hours . ':' . $bookly_end_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_end_date = convertTimeZone( date ("Y-m-d H:i:s", $string_end_effective_date), $bookly_user_timezone );
+
+            $new_effective_dates[] = array(
+                'start_user_datetime' => $new_booking_user_start_date,
+                'end_user_datetime' => $new_booking_user_end_date
+            );
+        } else {
+            $new_effective_start_date = date('Y-m-d', strtotime($bookly_effective_date));
+            $string_start_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_start_time . ':' . $bookly_start_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_start_date = convertTimeZone( date ("Y-m-d H:i:s", $string_start_effective_date), $bookly_user_timezone);
+            $string_end_effective_date = strtotime( $new_effective_start_date . ' ' . $bookly_end_hours . ':' . $bookly_end_minutes ); // mm/dd/yyyy H:m
+            $new_booking_user_end_date = convertTimeZone( date ("Y-m-d H:i:s", $string_end_effective_date), $bookly_user_timezone );
+
+            $new_effective_dates[] = array(
+                'start_user_datetime' => $new_booking_user_start_date,
+                'end_user_datetime' => $new_booking_user_end_date
+            );
+
+        }
+
+    endforeach;
+
+
+
+
+    global $wpdb;
+
+    // get staff timezone
+    $bookly_staff_table = $wpdb->prefix . 'bookly_staff';
+    $staff_results = $wpdb->get_results(
+        "SELECT * FROM $bookly_staff_table WHERE id = {$bookly_teacher_id}"
+    );
+    $wpdb->flush();
+
+    $staff_timezone = $staff_results[0]->time_zone;
+
+
+    if( !empty($bookly_teacher_id) && !empty($bookly_start_time) && !empty($bookly_class_duration) && !empty($bookly_effective_date) ){
+
+        // check for time overlap with teacher schedule items time
+        $bookly_staff_schedules_table = $wpdb->prefix . 'bookly_staff_schedule_items';
+        $staff_schedule_results = $wpdb->get_results(
+            "SELECT * FROM $bookly_staff_schedules_table WHERE staff_id = {$bookly_teacher_id}"
+        );
+        $wpdb->flush();
+
+
+
+        foreach ($staff_schedule_results as $staff_schedule_result):
+
+            if( !is_null( $staff_schedule_result->start_time ) OR !is_null( $staff_schedule_result->end_time ) ):
+
+                $schedule_item_id = $staff_schedule_result->id;
+                $schedule_day_index = $staff_schedule_result->day_index;
+                $schedule_day = BOOKLY_WEEK_DAYS_INDEX[$staff_schedule_result->day_index];
+
+                $schedule_item_id_dayindex[] = [
+                    $schedule_item_id => $schedule_day
+                ];
+
+                $end_hour = explode(':', $staff_schedule_result->end_time)[0];
+                $end_minutes = explode(':', $staff_schedule_result->end_time)[1];
+
+                if( (int) $end_hour > 24 ):
+                    // divide it two start and end time
+                    // insert each start and time in $staff_schedule_breaks_result[]
+
+                    // same day start and end time
+                    $start_of_same_day = convertTimeZone($staff_schedule_result->start_time, $staff_timezone);
+                    $end_of_same_day = convertTimeZone('23:59:00', $staff_timezone);
+                    $start_and_end_schedule[$schedule_day] = array(
+                        'day' => $schedule_day,
+                        'start' => date( 'H:i:s', strtotime($start_of_same_day)),
+                        'end' => date( 'H:i:s', strtotime($end_of_same_day))
+                    );
+
+
+                    // next day start and end time
+                    $next_schedule_day = BOOKLY_WEEK_DAYS_INDEX[$staff_schedule_result->day_index + 1];
+                    $next_day_end_time = ( $end_hour - 24 ) . ':' . $end_minutes . ':00';
+                    $start_of_next_day = convertTimeZone('24:00:00', $staff_timezone);
+                    $end_of_next_day = convertTimeZone( $next_day_end_time, $staff_timezone);
+                    $start_and_end_schedule['next-'.$next_schedule_day] = array(
+                        'day' => $next_schedule_day,
+                        'start' => date( 'H:i:s', strtotime($start_of_next_day)),
+                        'end' => date( 'H:i:s', strtotime($end_of_next_day))
+                    );
+
+                else:
+
+                    $start_schedule_time = convertTimeZone($staff_schedule_result->start_time, $staff_timezone);
+                    $end_schedule_time = convertTimeZone($staff_schedule_result->end_time, $staff_timezone);
+                    $start_and_end_schedule[$schedule_day] = array(
+                        'day' => $schedule_day,
+                        'start' => date( 'H:i:s', strtotime($start_schedule_time)),
+                        'end' => date( 'H:i:s', strtotime($end_schedule_time))
+                    );
+
+                endif;
+                
+
+            endif;
+
+        endforeach;
+
+
+
+
+
+        // run sortTimeArray
+        foreach ( $start_after_break as $key=>$start_after_break_item ):
+            $sorted_time = sortTimeArray( $start_after_break_item );
+            $sorted_start_after_break[$key] = $sorted_time;
+        endforeach;
+
+        foreach ( $end_before_break as $key=>$end_before_break_item ):
+            $sorted_time = sortTimeArray( $end_before_break_item );
+            $sorted_end_before_break[$key] = $sorted_time;
+        endforeach;
+
+        $user_start_time = $bookly_start_time . ':' . $bookly_start_minutes . ':00';
+        $user_start_time = convertTimeZone($user_start_time, $bookly_user_timezone);
+        $user_end_time = $bookly_end_hours . ':' . $bookly_end_minutes . ':00';
+        $user_end_time = convertTimeZone($user_end_time, $bookly_user_timezone);
+
+
+        for( $i=0; $i < count($sorted_start_after_break); $i++ ):
+            $checkTeacherSchedule[] = checkTeacherSchedule($bookly_class_days, $sorted_start_after_break, $sorted_end_before_break, $user_start_time, $user_end_time ) ;
+        endfor;
+
+        if (array_search(true, $checkTeacherSchedule) !== false) {
+            // teacher schedule has no empty slots
+            $overlap_status = json_encode(
+                array(
+                    'success' => true,
+                    'message' => 'over lap in teacher schedule',
+                    'over_lap_days' => [],
+                )
+            );
+            $overlap_found = true;
+
+        } else {
+            // teacher schedule is okay , let's search in his appointment and see if overlap found
+            // get all appointments for staff_id ( teacher_id )
+            // get all appointments for staff_id ( teacher_id )
+            $bookly_appointments_table = $wpdb->prefix . 'bookly_appointments';
+            $appointments_results = $wpdb->get_results(
+                "SELECT * FROM $bookly_appointments_table WHERE staff_id = {$bookly_teacher_id}"
+            );
+            $wpdb->flush();
+
+
+            foreach ( $appointments_results as $appointments_result ):
+
+                $booking_stored_start_date = $appointments_result->start_date;
+                $booking_stored_end_date = $appointments_result->end_date;
+
+                foreach ( $new_effective_dates as $new_effective_date ):
+                    $booking_user_start_date = $new_effective_date['start_user_datetime'];
+                    $booking_user_end_date = $new_effective_date['end_user_datetime'];
+                    $overlap_minutes = overlapInMinutes($booking_user_start_date, $booking_user_end_date, $booking_stored_start_date, $booking_stored_end_date);
+                    if( $overlap_minutes > 0 ){
+                        $overlap_appointment[] = true;
+                        $days_overlap[] = strtolower( date('D', strtotime($booking_user_start_date)) );
+
+                        $response['booking_stored_start_date'][] = $booking_stored_start_date . ' - ' . strtolower( date('D', strtotime($booking_stored_start_date)));
+                        $response['booking_stored_end_date'][] = $booking_stored_end_date . ' - ' . strtolower( date('D', strtotime($booking_stored_start_date)));
+                        $response['overlap_result'][] = $overlap_minutes;
+
+                    } else {
+                        // no overlap
+                        $overlap_appointment[] = false;
+                    }
+                endforeach;
+
+            endforeach;
+
+            if (array_search(true, $overlap_appointment) !== false) {
+                // teacher schedule has no empty slots
+                $overlap_status = json_encode(
+                    array(
+                        'success' => true,
+                        'message' => 'over lap in appointments',
+                        'over_lap_days' => $days_overlap,
+                    )
+                );
+                $overlap_found = $days_overlap;
+            }
+
+        }
+
+
+    } else {
+        echo 'complete_data';
+    }
+
+    if( !empty($overlap_status) ){
+        echo $overlap_status;
+    } else {
+        echo json_encode(
+            array(
+                'success' => false,
+                'message' => 'no overlap',
+                'over_lap_days' => [],
+            )
+        );
+    }
+
+
+    wp_die();
+
+
+}
+
+
+
+
+/******
+ * Ajax action to create social groups with learndash groups
+ ******/
+
+add_action('wp_ajax_submit_new_booking_form', 'submit_new_booking_form');
+add_action( 'wp_ajax_nopriv_submit_new_booking_form', 'submit_new_booking_form' );
+function submit_new_booking_form(){
+
+
+
+
+    wp_die();
+}
+
+
+
+
+
+
+/**** test function create bb group and updaete its meta ********/
+
+
+add_action('wp_ajax_create_bb_group', 'create_bb_group');
+add_action( 'wp_ajax_nopriv_create_bb_group', 'create_bb_group' );
+function create_bb_group(){
+
+    $user_ID= get_current_user_id();
+
+    $bb_group_args = array(
+        'group_id' => 0,
+        'creator_id' => $user_ID,
+        'name' => 'test from back',
+        'description' => 'test test',
+        'slug' => 'test-from-back',
+        'status' => 'private',
+    );
+
+    $bb_group_id = groups_create_group( $bb_group_args );
+
+    if( !empty($bb_group_id) ){
+        echo $bb_group_id;
+        // create new learn dash group
+        $my_post = array(
+            'post_title'    => 'Test from back',
+            'post_content'  => 'test test',
+            'post_status'   => 'publish',
+            'post_author'   => $user_ID,
+            'post_type'     => 'groups'
+        );
+
+        // Insert the post into the database
+        $ld_group_id = wp_insert_post( $my_post );
+        groups_update_groupmeta( $bb_group_id, '_sync_group_id', $ld_group_id, '' );
+    }
+
+    wp_die();
+
+
+}
+
+
+
