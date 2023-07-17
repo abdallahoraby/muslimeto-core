@@ -1710,7 +1710,7 @@ add_action( 'cron_every_one_hour_for_zoho', 'refresh_zoho_token_func' );
 function refresh_zoho_token_func() {
     if(site_url() !== 'https://portal.muslimeto.com') {return;}
 
-    $apiUrl = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=1000.42459b5c4443518e1411b19050f40c17.8e6dfb0e011ce4907ce8fbf60b40a00a&client_id=1000.L94YY4Z60L0ZVLBJYLYSSKQ8L6YD7Q&client_secret=de87cff3567dbdb33e7f350c599c5f1063e8c92511&scope=Desk.tickets.ALL,Desk.contacts.READ,Desk.contacts.WRITE,Desk.search.READ,Desk.basic.READ,Desk.tickets.CREATE,Desk.basic.CREATE,Desk.settings.READ,Desk.events.ALL&redirect_uri=https://mslmcomdev.wpengine.com/&grant_type=refresh_token';
+    $apiUrl = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=sad454654sa654654564&client_id=as3d23a2da2s3d&client_secret=as6d26as2d6sd2s62&scope=Desk.tickets.ALL,Desk.contacts.READ,Desk.contacts.WRITE,Desk.search.READ,Desk.basic.READ,Desk.tickets.CREATE,Desk.basic.CREATE,Desk.settings.READ,Desk.events.ALL&redirect_uri=https://mslmcomdev.wpengine.com/&grant_type=refresh_token';
     $apiResponse = wp_remote_post( $apiUrl,
         [
             'method'    => 'POST',
